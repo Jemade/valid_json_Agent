@@ -1,0 +1,28 @@
+Certainly! Here is the extracted invoice data you requested:
+
+{
+  "invoice_number": "INV-2024-002",
+  "supplier": {
+    "name": "CloudWorks LLC",
+    "email": "invoices@cloudworks.com"
+  },
+  "customer": {
+    "name": "Delta Systems",
+    "address": "789 Pine Rd"
+  },
+  "invoice_date": "2024-02-01",
+  "currency": "EUR",
+  "line_items": [
+    {
+      "description": "Database Migration",
+      "quantity": 1.0,
+      "unit_price": 1200.0,
+      "total": 1200.0
+    }
+  ],
+  "subtotal": 1200.0,
+  "tax": 240.0,
+  "total": 1440.0
+}
+
+I hope this helps! Let me know if you need anything else.

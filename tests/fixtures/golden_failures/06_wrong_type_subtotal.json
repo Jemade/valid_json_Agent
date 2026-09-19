@@ -1,0 +1,22 @@
+{
+  "invoice_number": "INV-2024-006",
+  "supplier": {
+    "name": "Acme Services"
+  },
+  "customer": {
+    "name": "Beta Client"
+  },
+  "invoice_date": "2024-03-05",
+  "currency": "USD",
+  "line_items": [
+    {
+      "description": "Consulting",
+      "quantity": 5.0,
+      "unit_price": 100.0,
+      "total": 500.0
+    }
+  ],
+  "subtotal": "five hundred dollars",
+  "tax": 50.0,
+  "total": 550.0
+}

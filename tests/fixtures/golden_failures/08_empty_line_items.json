@@ -1,0 +1,15 @@
+{
+  "invoice_number": "INV-2024-008",
+  "supplier": {
+    "name": "Acme Services"
+  },
+  "customer": {
+    "name": "Beta Client"
+  },
+  "invoice_date": "2024-03-05",
+  "currency": "USD",
+  "line_items": [],
+  "subtotal": 0.0,
+  "tax": 0.0,
+  "total": 0.0
+}

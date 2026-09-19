@@ -1,0 +1,27 @@
+INVOICE
+
+Invoice Number: INV-2024-8841
+Invoice Date: 2024-04-10
+Due Date: 2024-05-10
+
+SUPPLIER:
+Apex Cloud Technologies Inc.
+Tax ID: US-99482104
+100 Silicon Blvd, Suite 400, San Jose, CA 95134
+Email: billing@apexcloud.io
+
+CUSTOMER:
+Northwind Dynamics LLC
+Tax ID: US-11029384
+500 Enterprise Way, Austin, TX 78701
+Email: ap@northwind.com
+
+CURRENCY: USD
+
+ITEMS:
+1. Dedicated GPU Cluster (H100) - 2.0 units @ $1200.00 = $2400.00
+2. High-Performance Storage (10TB) - 1.0 units @ $350.00 = $350.00
+
+SUBTOTAL: $2750.00
+TAX (8.25%): $226.88
+TOTAL AMOUNT DUE: $2976.88

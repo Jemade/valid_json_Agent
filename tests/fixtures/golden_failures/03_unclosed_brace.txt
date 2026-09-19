@@ -1,0 +1,22 @@
+{
+  "invoice_number": "INV-2024-003",
+  "supplier": {
+    "name": "Truncated Corp",
+    "email": "billing@truncated.com"
+  },
+  "customer": {
+    "name": "Omega Co"
+  },
+  "invoice_date": "2024-02-10",
+  "currency": "USD",
+  "line_items": [
+    {
+      "description": "API Gateway",
+      "quantity": 10.0,
+      "unit_price": 20.0,
+      "total": 200.0
+    }
+  ],
+  "subtotal": 200.0,
+  "tax": 20.0,
+  "total": 220.0

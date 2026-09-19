@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  agent-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: structured-output-agent
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=production
+      - DEFAULT_PROVIDER=mock
+      - DEFAULT_MODEL=gpt-4o-mini
+      - MAX_RETRIES=3
+      - LOG_LEVEL=INFO
+      - LOG_RAW_INPUT=false
+      - LOG_RAW_OUTPUT=false
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 5s

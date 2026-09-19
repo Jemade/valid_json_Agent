@@ -1,0 +1,21 @@
+From: accounts@eurosoft-solutions.de
+Subject: Re: Invoice INV-DE-99120 for March Consulting
+Date: March 28, 2024
+
+Hi Team,
+
+Please find the details for our recent delivery below. 
+Invoice ref: INV-DE-99120, dated 2024-03-28. Payment is expected within 30 days (due 2024-04-27).
+
+Vendor: EuroSoft Solutions GmbH (VAT ID: DE814920194), Friedrichstrasse 12, Berlin. Contact: accounts@eurosoft-solutions.de.
+Client: Global Logistics SAS, Rue de la Paix 10, Paris.
+
+Line Items (EUR):
+- Senior Architecture Consulting: 40.0 hours at 150.00 EUR each = 6000.00 EUR
+- Infrastructure Audit: 1.0 unit at 1500.00 EUR = 1500.00 EUR
+
+Subtotal comes to 7500.00 EUR.
+VAT (19%) is 1425.00 EUR.
+Grand Total: 8925.00 EUR.
+
+Thank you for your business!
