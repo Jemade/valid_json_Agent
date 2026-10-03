@@ -6,7 +6,7 @@ from app.schemas.invoice import Invoice
 
 
 class ExtractionRequest(BaseModel):
-    document_text: str = Field(..., min_length=1, description="Raw text of the document to extract")
+    document_text: str = Field(..., min_length=1, max_length=100_000, description="Raw text of the document to extract")
     provider: str | None = Field(default=None, description="LLM provider: 'mock', 'openai', or 'anthropic'")
     model: str | None = Field(default=None, description="Specific model to use")
     max_retries: int | None = Field(default=None, ge=1, le=10, description="Max retry attempts")

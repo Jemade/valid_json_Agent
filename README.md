@@ -310,3 +310,28 @@ OPENAI_API_KEY="sk-..." python -m app.cli extract invoice.txt --provider openai 
 1. **Token Cost Tracking**: Track cumulative prompt and completion token costs per extraction request in metrics.
 2. **Multi-Domain Schema Registry**: Extend the agent to dynamically register schemas (resumes, job postings, purchase orders) via a schema registry.
 3. **Dead-Letter Queue (DLQ)**: Automatically push failed documents directly to an SQS/Kafka dead-letter queue for human review.
+
+## Concurrent API operation
+
+The API owns one HTTPX connection pool per worker, reused across requests and
+corrective attempts and closed on shutdown. CLI and standalone provider calls
+retain their own short-lived clients. Provider instances remain request-local.
+
+| Environment variable | Default | Purpose |
+| --- | --- | --- |
+| `MAX_CONCURRENT_EXTRACTIONS` | 16 | Active extractions per worker |
+| `ADMISSION_TIMEOUT_SECONDS` | 1 | Maximum wait for a worker slot |
+| `MAX_HTTP_CONNECTIONS` | 32 | Connections in each worker's upstream pool |
+| `REQUEST_TIMEOUT_SECONDS` | 30 | HTTP operation timeout |
+| `EXTRACTION_TIMEOUT_SECONDS` | 90 | Overall extraction deadline across retries |
+
+Overload returns HTTP 503 with `Retry-After: 1`. The overall deadline returns
+HTTP 504 and releases the worker slot. Documents are limited to 100,000 characters
+by the API schema; apply a body-size limit at your reverse proxy as well to bound
+request decoding memory. Settings reject nonpositive capacity and timeout values.
+
+Run multiple workers or replicas behind a load balancer to increase capacity.
+These limits and `/metrics` counters are process-local, so total upstream load
+scales with worker count. Use an external queue and shared quota store if you need
+durable background jobs or a deployment-wide limit. This change does not introduce
+those services or guarantee upstream provider capacity.

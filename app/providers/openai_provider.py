@@ -4,6 +4,7 @@ import httpx
 
 from app.agent.exceptions import ProviderError, ProviderTimeoutError
 from app.providers.base import ProviderResponse
+from app.providers.http_client import provider_client
 
 
 class OpenAIProvider:
@@ -15,11 +16,13 @@ class OpenAIProvider:
         base_url: str = "https://api.openai.com/v1",
         model: str = "gpt-4o-mini",
         timeout: float = 30.0,
+        http_client: httpx.AsyncClient | None = None,
     ):
         self.api_key = api_key
         self.base_url = base_url.rstrip("/")
         self.model = model
         self.timeout = timeout
+        self.http_client = http_client
         self.provider_name = "openai"
 
     async def complete(
@@ -52,11 +55,12 @@ class OpenAIProvider:
 
         start_time = time.perf_counter()
         try:
-            async with httpx.AsyncClient(timeout=self.timeout) as client:
+            async with provider_client(self.http_client, self.timeout) as client:
                 response = await client.post(
                     f"{self.base_url}/chat/completions",
                     headers=headers,
                     json=payload,
+                    timeout=self.timeout,
                 )
                 response.raise_for_status()
                 data = response.json()
