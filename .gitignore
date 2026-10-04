@@ -44,3 +44,11 @@ htmlcov/
 
 # Docker
 .dockerignore
+
+# Local runtime and private configuration
+node_modules/
+.env.*.local
+*.db
+*.sqlite
+*.sqlite3
+.DS_Store
